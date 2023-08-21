@@ -1,0 +1,254 @@
+body{
+    background: #0e1538;
+    color: whitesmoke;
+    font-family: sans-serif;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bubbles{
+    position: relative;
+    display: flex;
+}
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate1 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+.bubbles span:nth-child(even)
+{
+    background: #ff2d75;
+     box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+@keyframes animate1{
+    0%
+    {
+        transform: translateY(100vh) scale(0);
+    }
+    50%
+    {
+        transform: translateY(50vh) scale(0.5);
+    }
+    100%
+    {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #b9b7cefd;
+}
+.description{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 26px;
+}
+.description .details{
+    width: 46%;
+    height: auto;
+    line-height: 22px;
+}
+.main-grid{
+    position: relative;
+    margin-bottom: 8%;
+   overflow: hidden;
+}
+
+.grid {
+    position: relative;
+    background-image: linear-gradient(to right top, #051937, #0d3358, #11507a, #0e6e9d, #008fbf);
+    width: 70%;
+    display: grid;
+    left: 12%;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    border: 1px solid whitesmoke;
+    margin-top: 14px;
+    padding: 8px;
+    font-weight: 800;
+}
+.grid::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(315deg, #00ccff,#0e1538,#d400d4);
+    filter: blur(5px);
+}
+.grid:hover::before{
+    background: var(--clr);
+    filter: brightness(0.9);
+    border-radius: 30%;
+   z-index: 4;
+}
+
+.grid span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0e1538;
+    border-radius: 20px;
+}
+
+
+/* ... Your existing CSS code ... */
+
+.grid:hover .social a {
+    transform: rotateX(5deg) rotateY(15deg) translateZ(15px);
+  }
+  
+  .grid:hover .share-icon {
+    transform: rotateX(5deg) rotateY(15deg) translateZ(30px);
+  }
+  
+  .grid:hover span {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* ... The rest of your existing CSS code ... */
+  
+.social {
+    display: inline-block;
+    width: 60%;
+    position: relative;
+    padding: 8px;
+    bottom: 12px;
+    z-index: 4;
+}
+
+.social a {
+    position: absolute;
+    width: 350%;
+    height: 100%;
+    text-decoration: none;
+    color: whitesmoke;
+    z-index: 1;
+  
+}
+.grid .share-icon{
+    position: absolute;
+   right: 12px;
+   top: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 4;
+}
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(249, 200, 102, 0.2) 0px 14px 17px; /* Adjust box shadow for smaller screens */
+    width: 96px; /* Reduce width for smaller screens */
+    height: 96px; /* Reduce height for smaller screens */
+    max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+    border-radius: 50%; /* Use a perfect circle for border radius */
+    background-color: rgb(12, 9, 9);
+    position: relative;
+    margin: 0 auto; /* Center the element horizontally */
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%; /* Use 100% height to cover the entire circle */
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+  
+  .main-grid .grid {
+    position: relative;
+}
+
+.custom-share-icons {
+    position: fixed;/* Change position to fixed */
+    top: 40%;        /* Adjust the top position as needed */
+    left: 86%;       /* Adjust the left position as needed */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    display: none;
+    z-index: 4;   /* Adjust the z-index as needed */
+}
+.custom-share-icons i {
+  margin: 8px;
+  padding: 5px;
+  font-size: 20px;
+  
+}
+
+.show {
+    display: block !important;
+}
+
+.copy-link-button {
+    width: 100%;
+    display: block;
+    margin-top: 10px; /* Add some spacing between the icons and the button */
+    padding: 8px 12px;
+    background-color: #ff2d75;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.copy-link-button:hover {
+    background-color: #b94d73;
+}
+
+/* Responsive code start from here */
+@media screen and (max-width: 768px) {
+    .bubbles span {
+        width: 10px;
+        height: 10px;
+        box-shadow: 0 0 0 3px #4fc3dc44,
+                    0 0 15px #4fc3dc, 0 0 30px #4fc3dc;
+    }
+    .bubbles span:nth-child(even)
+{
+    width: 10px;
+        height: 10px;
+     box-shadow: 0 0 0 3px #ff2d7544,
+    0 0 15px #ff2d75, 0 0 30px #ff2d75;
+}
+.name {
+    font-size: 20px;
+    padding: 8px;
+}
+
+.description .details {
+    width: 66%;
+    line-height: 17px;
+}
+
+.image {
+    width: 80px; /* Reduce width for smaller screens */
+    height: 80px; /* Reduce height for smaller screens */
+
+}
+}
